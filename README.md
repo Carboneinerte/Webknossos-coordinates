@@ -10,8 +10,10 @@ What the program can do
 
 options:
   -h, --help            show this help message and exit
+  
   -f FILE_PATH, --file_path FILE_PATH
                         Write fill path to the folder + name of file (e.g. "D:\Download/test.nml")
+                        
   -k KEYWORD, --keyword KEYWORD
                         Keyword to look in node comments. !Case-sensitive!
 
