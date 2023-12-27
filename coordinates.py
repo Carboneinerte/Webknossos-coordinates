@@ -1,7 +1,5 @@
-import os
-
 import numpy as np
-import os
+# import os
 import argparse
 
 parser = argparse.ArgumentParser(
@@ -10,26 +8,28 @@ parser = argparse.ArgumentParser(
     epilog='Make sure your file has been extracted from skeleton trees in webnossos (.NML)'
 )
 
-parser.add_argument('-f', '--file_path', action='store', default = os.getcwd(),
+parser.add_argument('-f', '--file_path', action='store',
                     help='Write fill path to the folder + name of file (e.g. "D:\Download/test.nml")')
-parser.add_argument('-k', '--keyword', action='store', default = 'Synapse', help='Keyword to look in node comments. !Case-sensitive!')
+parser.add_argument('-k', '--keyword', action='store', default='Synapse',
+                    help='Keyword to look in node comments. !Case-sensitive!')
 
 args = parser.parse_args()
 
 # Import NML File (downloaded from Webknossos)
 file_path = args.file_path
-with open(file_path,'r') as file:
+with open(file_path, 'r') as file:
     file_content = file.readlines()
 
 # Find all node id numbers with comment corresponding to what we look for (comment to rephrase)
-#TODO add error if
 ID_numb = []
 com_looked = args.keyword
 for i in range(len(file_content)):
     if com_looked in file_content[i]:
         ID_numb.append(file_content[i].split('"')[1])
-if (len(ID_numb) == 0):
-    print('/!\ List empty, check keyword or --help /!\\')
+if len(ID_numb) == 0:
+    print("/!\ List empty, check keyword or --help /!\ ")
+else:
+    print(len(ID_numb))
 
 # Create matrix with coordinates of each node identified in previous step
 z_list = ['z']
@@ -37,7 +37,8 @@ y_list = ['y']
 x_list = ['x']
 for j in ID_numb:
     text_to_add = 'id="'
-    ID_to_find = f"{text_to_add}{j}"
+    text_to_add2 = '"'
+    ID_to_find = f"{text_to_add}{j}{text_to_add2}"
     for i in range(len(file_content)):
         if ID_to_find in file_content[i]:
             y_list.append(file_content[i].split('"')[7])
