@@ -1,7 +1,10 @@
 # Webknossos-coordinates
 Automatically extract coordinates of annotated nodes from webknossos skeleton ([Webknossos](https://weblium.webknossos.org/))
 
-usage: coordinates [-h] [-f FILE_PATH] [-k KEYWORD]
+usage: 
+```
+coordinates [-h] [-f FILE_PATH] [-k KEYWORD]
+```
 
 What the program can do
 
