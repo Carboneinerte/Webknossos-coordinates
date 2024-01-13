@@ -15,6 +15,6 @@ options:
                         Write fill path to the folder + name of file (e.g. "D:\Download/test.nml")
                         
   -k KEYWORD, --keyword KEYWORD
-                        Keyword to look in node comments. !Case-sensitive!
+                        Keyword to look in node comments. !Case-insensitive!
 
 Make sure your file has been extracted from skeleton trees in Webnossos (.NML)
